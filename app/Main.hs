@@ -1,6 +1,13 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Main where
 
-import Lib
+import FizzBuzzFib
+
+import Control.Monad (mapM_)
+import ReadArgs (readArgs)
 
 main :: IO ()
-main = someFunc
+main = do
+  (numberOfEntries :: Int) <- readArgs
+  mapM_ putStrLn $ take numberOfEntries fizzBuzzStream

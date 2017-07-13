@@ -15,8 +15,10 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:     FizzBuzzFib, FizzBuzzFib.Types
   build-depends:       base >= 4.7 && < 5
+                     , primes
+                     , fibonacci >= 0.2.0.1
   default-language:    Haskell2010
 
 executable fizzbuzzfib-exe
@@ -25,6 +27,7 @@ executable fizzbuzzfib-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , fizzbuzzfib
+                     , ReadArgs
   default-language:    Haskell2010
 
 test-suite fizzbuzzfib-test
@@ -33,6 +36,8 @@ test-suite fizzbuzzfib-test
   main-is:             Spec.hs
   build-depends:       base
                      , fizzbuzzfib
+                     , QuickCheck
+                     , Numbers
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
